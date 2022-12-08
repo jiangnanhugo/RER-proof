@@ -53,3 +53,42 @@ Out[29]: 173307112
 
 In [30]: sumed
 Out[30]: 119603024
+  
+  
+# the following part of code evaluates this equation:
+# (1-\eta)^{2L}=\sum_{k=0}^{2L}{2L\choose k} (-\eta)^k=1+\sum_{k=1}^{2L}{2L\choose k} (-\eta)^k,
+In [39]: from sympy import binomial as bi
+
+In [40]: bi(10,11)
+Out[40]: 0
+
+In [41]: sumed=0;
+
+In [42]: for k in range(2*L+1):
+    ...:     sumed+=bi(2*L, k)*(-eta)**k
+    ...:
+
+In [44]: sumed
+Out[44]: 0.000976562500000000
+
+In [45]: sumed=[];
+    ...: for k in range(2*L+1):
+    ...:     sumed.append(bi(2*L, k)*(-eta)**k)
+    ...:
+
+In [46]: sumed
+Out[46]:
+[1.00000000000000,
+ -5.00000000000000,
+ 11.2500000000000,
+ -15.0000000000000,
+ 13.1250000000000,
+ -7.87500000000000,
+ 3.28125000000000,
+ -0.937500000000000,
+ 0.175781250000000,
+ -0.0195312500000000,
+ 0.000976562500000000]
+
+In [47]: (1-eta)**(2*L)
+Out[47]: 0.0009765625

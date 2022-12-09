@@ -92,3 +92,22 @@ Out[46]:
 
 In [47]: (1-eta)**(2*L)
 Out[47]: 0.0009765625
+
+  
+# comparison between our lemma and the existing bounds
+# our bound is way better.
+In [53]: eta=0.05;L=4;
+
+In [54]: -eta*L
+Out[54]: -0.2
+
+In [55]: (1-eta)**(2*L) - (1-eta)**(2*L-3) + (1-eta)**(L) - (1-eta)**(L-2)
+Out[55]: -0.1983542562109376
+
+In [56]: eta=0.05;L=40;
+
+In [57]: -eta*L
+Out[57]: -2.0
+
+In [58]: (1-eta)**(2*L) - (1-eta)**(2*L-3) + (1-eta)**(L) - (1-eta)**(L-2)
+Out[58]: -0.016630930192162413
